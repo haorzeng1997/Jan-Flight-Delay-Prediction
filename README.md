@@ -1,7 +1,7 @@
 # <center>US January Flight Delay Prediction Project</center>
 
 ## <center>(Source: Kaggle Datasets)</center>
-## <center>Notebook: [ML-Jan Flight Prediction](https://github.com/haorzeng1997/Jan-Flight-Delay-Prediction/blob/master/Flight-Delay-Prediction-Notebook.ipynb)</center>
+## <center>Notebook: [ML-Jan Flight Delay Prediction](https://github.com/haorzeng1997/Jan-Flight-Delay-Prediction/blob/master/Flight-Delay-Prediction-Notebook.ipynb)</center>
 
 - Created a classification model (f1 score: **0.75** & accuracy score: **0.94**) to predict whether a flight would delay or not based on features including distance, departure airports, arrival airports and etc.
 
