@@ -1,7 +1,7 @@
 # <center>US January Flight Delay Prediction Project</center>
 
 ## <center>(Source: Kaggle Datasets)</center>
-## <center>Notebook: [ML-DS Salary Estimate](https://github.com/haorzeng1997/Data-Scientist-Salary-Project/blob/master/data%20science%20salary%20estimate%20project%20report.pdf)</center>
+## <center>Notebook: [ML-Jan Flight Prediction](https://github.com/haorzeng1997/Jan-Flight-Delay-Prediction/blob/master/Flight-Delay-Prediction-Notebook.ipynb)</center>
 
 - Created a classification model (f1 score: 0.75 & accuracy score: 0.94) to predict whether a flight would delay or not based on features including distance, departure airports, arrival airports and etc.
 
@@ -104,3 +104,30 @@ To prepare for EDA and model building, I cleaned the dataset:
 ![alt text][logo5]
 
 [logo5]: https://github.com/haorzeng1997/Jan-Flight-Delay-Prediction/blob/master/graph/totalnumberflight.png "flightversus"
+
+## Feature Engineering
+
+- ARR_TIME_BLK: I created this column using the same logic of DEP_TIME_BLK. 
+
+- Dummy variables: I changed the dtype of "ORIGIN", "DEST", "DEP_TIME_BLK", "ARR_TIME_BLK", "YEAR", "DEP_DEL15", "ARR_DEL15" to categorical. Then I used pandas.get_dummies to create dummy variables for these categorical data.
+
+## Model Building
+I planned to build a decent classification model based on Jan 2019 and Jan 2020 US flight data to predict whether a flight would delay or not. Future travelers and agencies could use this model to predict the chance of delay of a particular flight. 
+
+I performed:
+
+-   Decision Tree
+-   Random Forest
+  
+I would use  **"f1 score"**  to score each model. Because the classes are imbalanced, f1 score is a better benchmark than accuracy score.
+
+## Model Performances
+
+The Random Forest outperformed the Decision Tree on the test and validation sets.
+
+- Random Forest: ~0.75 (f1 score)
+- Decision Tree: ~0.7 (f1 score)
+
+## Notes
+
+Due to the computing power limitation, the SVC and AdaBoost algorithms failed to generate any result. The Random Forest and Decision Tree models already used half of the data (more than 500,000 pieces of flight info). Thus, the potential of increasing models' accuracy is high.
