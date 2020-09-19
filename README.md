@@ -90,3 +90,17 @@ To prepare for EDA and model building, I cleaned the dataset:
 ![alt text][logo3]
 
 [logo3]: https://github.com/haorzeng1997/Jan-Flight-Delay-Prediction/blob/master/graph/top10airport.png "top10airport"
+
+- Flights of what carriers are more likely to delay?
+
+	WN, AA and OO (Southwest Airlines, American Airlines and SkyWest Airlines) are the top 3 carriers have the highest total number of delayed flights both in 2019 and 2020.
+![alt text][logo4]
+
+[logo4]: https://github.com/haorzeng1997/Jan-Flight-Delay-Prediction/blob/master/graph/top10carrier.png "top10carrier"
+
+- Total number of flights in Jan 2019 and Jan 2020
+
+	I mentioned that COVID-19 may cause total number of flights decreased. However, my assumption may be  wrong. There were more flights in Jan 2020 than Jan 2019.
+![alt text][logo5]
+
+[logo5]: https://github.com/haorzeng1997/Jan-Flight-Delay-Prediction/blob/master/graph/totalnumberflight.png "flightversus"
