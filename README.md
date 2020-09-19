@@ -45,4 +45,48 @@ According to the author of the dataset, This data is collected from the Bureau o
 - DIVERTED: Diverted Flight Indicator (1=Yes, 0=No)
 - DISTANCE: Distance between airports (miles)
 
- 
+The dataset contains 1191331 pieces of flight information and 23 features.
+
+## Data Cleaning
+To prepare for EDA and model building, I cleaned the dataset:
+
+- NULL values
+
+	"Unnamed: 21" column is an empty column, so I dropped the column.
+	
+	For flights that were labelled as "cancelled" and "diverted", their ARR_TIME and ARR_DEL15 are empty. This makes sense since once a flight was cancelled or diverted, we won't be able to collect information about arriving time. 26100 flights contain missing values. Since the dataset contains more than 1 million flights information, I decided to drop flights with missing values.
+	
+- Drop highly correlated columns
+
+	Flight #: In the dataset, TAIL_NUM and OP_CARRIER_FL_NUM represent a same thing-the flight number. So I dropped TAIL_NUM.
+	
+	Carrier: OP_UNIQUE_CARRIER, OP_CARRIER_AIRLINE_ID and OP_CARRIER represent the carrier of flight. I kept OP_CARRIER and dropped the other two. Since OP_CARRIER is more readable (for example, AA, UA etc.) 
+
+	Origin and Destination: ORIGIN_AIRPORT_ID, ORIGIN_AIRPORT_SEQ_ID and ORIGIN indicate origin airport. DEST_AIRPORT_ID, DEST_AIRPORT_SEQ_ID, DEST indicate the destination airport. Among them, DEST and ORIGIN are the most common used ones (for example, ORD, ATL etc.) Thus I kept DEST and ORGIN and dropped others.
+
+## Exploratory Data Analysis
+
+- Flight delay is related to many factors. Generally, the most frequent reason is the delay of departure. Based on historical data (Jan 2019 and Jan 2020 data), if a flight was departure delay, there was 77.74% chance that the flight delayed upon arrival. 
+
+- On what days of January travelers can expect arrival delay? (Total number of delays by Day of month)
+
+	Surprisingly, the pattern is not obvious. I assume that weather condition plays an important role here. But we can see that for 2019, the delay chance was higher in the second half of January and for 2020, the delay chance was higher in the first half of January. Due to the COVID-19, people can reasonable assume that flight numbers decreased during the second half of January 2020.
+![alt text][logo1]
+
+[logo1]: https://github.com/haorzeng1997/Jan-Flight-Delay-Prediction/blob/master/graph/dom.png "dom"
+
+- On what days of week travelers can expect arrival delay? (Total number of delays by Day of week)
+
+	In Jan 2019, most of arrival delays happened on Wednesdays and Thursdays. In Jan 2020, most of arrival delays happened on Thursdays, Fridays, and Saturdays.
+![alt text][logo2]
+
+[logo2]: https://github.com/haorzeng1997/Jan-Flight-Delay-Prediction/blob/master/graph/dow.png "dow"
+
+- Flights departed from/arrived at what airports are more likely to delay?
+	
+	Flights departed from ORD, DFW and ATL are more likely to experience departure delay.
+	Flights arrived at ORD, DFW, ATL and LGA are more likely to experience arrival delay.
+	In conclusion, ORD, DFW and ATL are busiest airports in the United States, if a passenger's destination or origin airport is one of them, the passenger are very likely to experience arrival or departure delay.
+![alt text][logo3]
+
+[logo3]: https://github.com/haorzeng1997/Jan-Flight-Delay-Prediction/blob/master/graph/top10airport.png "top10airport"
